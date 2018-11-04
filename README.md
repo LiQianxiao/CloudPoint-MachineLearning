@@ -10,11 +10,6 @@ Paper: High-accuracy cloud point engineering via machine-learning informed tunin
 
 Requirements are found [here](requirements.txt)
 
-## Authors
-
-* [Qianxiao Li](https://github.com/LiQianxiao)
-* Gonzalez Oyarce Anibal Lautaro
-
 ## License
 
 This project is licensed under the MIT license - see [LICENSE.md](LICENSE.md).

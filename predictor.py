@@ -28,11 +28,11 @@ class NeuralNetRegressor(Regressor):
 
     def __init__(self, options):
         self.options = options
+        self.name = options['name']
         self.input = tf.placeholder(
             tf.float32, [None, ] + options['input_shape'], 'input')
         self.target = tf.placeholder(
             tf.float32, [None, ] + options['target_shape'], 'target')
-        self.name = options['name']
         self.session = options['session']
 
         with tf.variable_scope(
@@ -133,8 +133,8 @@ class EnsembleRegressor(object):
         return covariance
 
     def fit(self, input, target, list_of_options):
-        for regressor, options in zip(self.regressors, list_of_options):
-            print('Fitting Regressor: '+regressor.name)
+        for j, (regressor, options) in enumerate(zip(self.regressors, list_of_options)):
+            print('Fitting Regressor {}'.format(j))
             regressor.fit(input, target, options)
 
     def predict_transform(self, x, mean_flag=True):  # returns the mean
